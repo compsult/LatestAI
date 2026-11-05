@@ -1,0 +1,46 @@
+{
+  "digest_days": 14,
+  "feeds_max_age_days": 14,
+  "huggingface": {
+    "max_age_days": 30,
+    "exclude_name": "(?i)nsfw|uncensored|hentai|porn",
+    "original": { "trending": 15, "likes": 50 },
+    "derivative": { "trending": 50, "likes": 200 },
+    "watched_derivative": { "trending": 10, "likes": 50 },
+    "watched_orgs": [
+      "black-forest-labs", "Qwen", "Wan-AI", "Lightricks", "tencent", "stabilityai",
+      "ByteDance", "ByteDance-Seed", "meituan-longcat", "Pika-Labs", "genmo", "nvidia",
+      "zai-org", "hunyuanvideo-community", "Efficient-Large-Model", "OpenMOSS-Team",
+      "kandinskylab", "Viggle", "MiniMaxAI", "stepfun-ai", "krea", "HiDream-ai",
+      "Kwai-Kolors", "KlingTeam", "inclusionAI", "Tongyi-MAI", "PrunaAI", "baidu",
+      "Skywork"
+    ]
+  },
+  "try": {
+    "exclude_space": "(?i)calculator|trainer|leaderboard|arena|compare|comparison|benchmark",
+    "max_candidates": 5,
+    "max_demos": 2
+  },
+  "papers": { "min_upvotes": 10 },
+  "filters": {
+    "media": "(?i:text[- ]to[- ](image|video)|image[- ]to[- ]video|video[- ]to[- ]video|(image|video)[- ](generat|edit|model|synthes)\\w*|generative (video|image|fill|extend|expand)|(video )?diffusion model|video diffusion|animated gif|comfyui|\\bai[- ](powered )?(video|image|film|edit)\\w*|\\b(premiere|davinci resolve|photoshop|after effects)\\b.{0,80}\\b(ai|generative)\\b)|\\b(Sora|Veo|Imagen|FLUX|Flux|Kling|Runway|Midjourney|Seedance|Seedream|Hunyuan|LTX|Firefly|Nano Banana|GPT[- ]Image|Images [0-9]|Stable Diffusion|Topaz|Wan ?2|Qwen-Image|MiniMax-H3|Hailuo)\\b",
+    "release": "(?i)\\b(release[sd]?|open[- ]sourced?|weights|launch(es|ed)?|announc\\w+|now available|just dropped)\\b"
+  },
+  "feeds": [
+    { "name": "Hugging Face Blog", "url": "https://huggingface.co/blog/feed.xml", "filter": "media" },
+    { "name": "ComfyUI Blog", "url": "https://blog.comfy.org/feed" },
+    { "name": "ComfyUI Releases", "url": "https://github.com/Comfy-Org/ComfyUI/releases.atom", "title_prefix": "ComfyUI " },
+    { "name": "Diffusers Releases", "url": "https://github.com/huggingface/diffusers/releases.atom", "title_prefix": "Diffusers " },
+    { "name": "Midjourney Updates", "url": "https://updates.midjourney.com/rss/" },
+    { "name": "fal Blog", "url": "https://blog.fal.ai/rss/", "filter": "media" },
+    { "name": "Replicate Blog", "url": "https://replicate.com/blog/rss", "filter": "media" },
+    { "name": "OpenAI News", "url": "https://openai.com/news/rss.xml", "filter": "media" },
+    { "name": "Google DeepMind", "url": "https://deepmind.google/blog/rss.xml", "filter": "media" },
+    { "name": "The Decoder", "url": "https://the-decoder.com/feed/", "filter": "media" },
+    { "name": "TechCrunch AI", "url": "https://techcrunch.com/category/artificial-intelligence/feed/", "filter": "media" },
+    { "name": "MarkTechPost", "url": "https://www.marktechpost.com/feed/", "filter": "media" },
+    { "name": "CineD", "url": "https://www.cined.com/feed/", "filter": "media" },
+    { "name": "No Film School", "url": "https://nofilmschool.com/rss.xml", "filter": "media" },
+    { "name": "Reddit (StableDiffusion, comfyui, aivideo)", "url": "https://www.reddit.com/r/StableDiffusion+comfyui+aivideo/top/.rss?t=day", "filter": "release" }
+  ]
+}
