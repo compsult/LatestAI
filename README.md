@@ -56,7 +56,9 @@ can be run by anyone, so don't upload anything private to them. Quotas come from
 ## Changing it
 
 Everything is in `config.json`: watched orgs, thresholds, feeds and keywords. To
-add a feed, add its name and URL. Leave out `filter` to keep every post.
+add a feed, add its name and URL. Leave out `filter` to keep every post. If a feed
+links different posts to the same page, as WhichAI's does, add `"links_reused": true`
+so each post is still tracked separately.
 
 If a source fails, the digest lists it at the top and the other sources still run.
 Items seen so far are stored in `data/state.db`. Delete `data/` to start over.

@@ -108,6 +108,16 @@ class FeedTests(unittest.TestCase):
         ]
         self.assertEqual(titles, ["Diffusers v1.0", "Diffusers 1.0"])
 
+    def test_reused_links_still_give_each_update_its_own_id(self):
+        base = {"url": "https://x.test/video", "date": "2026-11-04T00:00:00Z", "summary": ""}
+        entries = [{**base, "title": "Video: Model A"}, {**base, "title": "Video: Model B"}]
+        reused = {"name": "F", "links_reused": True}
+        ids = {i["id"] for i in latestai.select_feed_entries(entries, reused, CONFIG, NOW)}
+        self.assertEqual(len(ids), 2)
+        # Other feeds keep link-only IDs, so items already seen don't come back as new.
+        plain = latestai.select_feed_entries(entries[:1], {"name": "F"}, CONFIG, NOW)
+        self.assertEqual(plain[0]["id"], "feed:https://x.test/video")
+
     def test_unsafe_link_scheme_is_rejected(self):
         self.assertEqual(self.select(url="javascript:alert(1)"), [])
 

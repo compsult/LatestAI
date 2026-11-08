@@ -421,8 +421,13 @@ def select_feed_entries(entries: list[dict], feed: dict, config: dict, now: date
             continue
         prefix = feed.get("title_prefix", "")
         title = entry["title"] if entry["title"].startswith(prefix) else prefix + entry["title"]
+        item_id = f"feed:{entry['url']}"
+        if feed.get("links_reused"):
+            # Some feeds point every update at the same page, so the link alone
+            # would hide later updates as already seen.
+            item_id += f"#{entry['title']}"
         items.append({
-            "id": f"feed:{entry['url']}",
+            "id": item_id,
             "section": "News and tool updates",
             "title": title,
             "url": entry["url"],

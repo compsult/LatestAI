@@ -41,6 +41,7 @@
     { "name": "MarkTechPost", "url": "https://www.marktechpost.com/feed/", "filter": "media" },
     { "name": "CineD", "url": "https://www.cined.com/feed/", "filter": "media" },
     { "name": "No Film School", "url": "https://nofilmschool.com/rss.xml", "filter": "media" },
+    { "name": "WhichAI top picks", "url": "https://whichai.today/feed.xml", "filter": "media", "links_reused": true },
     { "name": "Reddit (StableDiffusion, comfyui, aivideo)", "url": "https://www.reddit.com/r/StableDiffusion+comfyui+aivideo/top/.rss?t=day", "filter": "release" }
   ]
 }
